@@ -14,7 +14,7 @@ export default function App() {
   return (
     <Container>
       <LogoContainer/>
-      <CardPergunta contador={contador} setContador={setContador}/>
+      <CardPergunta contador={contador} setContador={setContador} data-identifier="flashcard"/>
       <FooterConcluidos contador={contador}/>
     </Container>
   );

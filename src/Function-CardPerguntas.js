@@ -13,18 +13,18 @@ export default function CardPerguntas(props) {
   if (estadoCarta === 0) {
     console.log("if0");
     return (
-      <PerguntaFechada>
-        <p>Pergunta {props.index + 1}</p>
-        <img src={imgSetaPlay} alt="" onClick={() => setestadoCarta(1)} />
+      <PerguntaFechada data-identifier="flashcard">
+        <p data-identifier="flashcard-index-item">Pergunta {props.index + 1}</p>
+        <img src={imgSetaPlay} alt="" onClick={() => setestadoCarta(1)} data-identifier="flashcard-show-btn"/>
       </PerguntaFechada>
     );
   }
   if (estadoCarta === 1) {
     console.log("if1");
     return (
-      <PerguntaAberta>
+      <PerguntaAberta data-identifier="flashcard-question">
         {props.Q}
-        <img src={setaVirar} alt="" onClick={() => setestadoCarta(2)} />
+        <img src={setaVirar} alt="" onClick={() => setestadoCarta(2)} data-identifier="flashcard-turn-btn"/>
       </PerguntaAberta>
     );
   }
@@ -32,7 +32,7 @@ export default function CardPerguntas(props) {
     console.log("if2");
     return (
       <RespostaAberta>
-        <p>{props.R}</p>
+        <p data-identifier="flashcard-answer">{props.R}</p>
         <ContainerBotoes>
           <Botoes
             color={"#FF3030"}
@@ -40,7 +40,7 @@ export default function CardPerguntas(props) {
               setestadoCarta(3);
               props.setContador([...props.contador, "index"]);
             }}
-          >
+            data-identifier="forgot-btn">
             Não lembrei
           </Botoes>
           <Botoes
@@ -49,7 +49,7 @@ export default function CardPerguntas(props) {
               setestadoCarta(4);
               props.setContador([...props.contador, "index"]);
             }}
-          >
+            data-identifier="almost-forgot-btn">
             Quase não lembrei
           </Botoes>
           <Botoes
@@ -58,7 +58,7 @@ export default function CardPerguntas(props) {
               setestadoCarta(5);
               props.setContador([...props.contador, "index"]);
             }}
-          >
+            data-identifier="zap-btn">
             Zap!
           </Botoes>
         </ContainerBotoes>
@@ -67,25 +67,25 @@ export default function CardPerguntas(props) {
   }
   if (estadoCarta === 3) {
     return (
-      <NaoLembrei color="#FF3030">
+      <NaoLembrei color="#FF3030" data-identifier="flashcard-index-item">
         <p>Pergunta {props.index + 1}</p>
-        <img src={imgIconeErro} alt="" />
+        <img src={imgIconeErro} alt="" data-identifier="flashcard-status"/>
       </NaoLembrei>
     );
   }
   if (estadoCarta === 4) {
     return (
-      <NaoLembrei color={"#FF922E"}>
+      <NaoLembrei color={"#FF922E"} data-identifier="flashcard-index-item">
         <p>Pergunta {props.index + 1}</p>
-        <img src={imgIconeQuase} alt="" />
+        <img src={imgIconeQuase} alt="" data-identifier="flashcard-status"/>
       </NaoLembrei>
     );
   }
   if (estadoCarta === 5) {
     return (
-      <NaoLembrei color="#2FBE34">
+      <NaoLembrei color="#2FBE34" data-identifier="flashcard-index-item">
         <p>Pergunta {props.index + 1}</p>
-        <img src={imgIconeCerto} alt="" />
+        <img src={imgIconeCerto} alt="" data-identifier="flashcard-status"/>
       </NaoLembrei>
     );
   }
