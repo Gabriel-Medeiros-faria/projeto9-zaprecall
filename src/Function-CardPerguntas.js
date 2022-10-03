@@ -7,11 +7,9 @@ import { useState } from "react";
 import styled from "styled-components";
 
 export default function CardPerguntas(props) {
-  console.log(props.contador);
   const [estadoCarta, setestadoCarta] = useState(0);
 
   if (estadoCarta === 0) {
-    console.log("if0");
     return (
       <PerguntaFechada data-identifier="flashcard">
         <p data-identifier="flashcard-index-item">Pergunta {props.index + 1}</p>
@@ -20,7 +18,6 @@ export default function CardPerguntas(props) {
     );
   }
   if (estadoCarta === 1) {
-    console.log("if1");
     return (
       <PerguntaAberta data-identifier="flashcard-question">
         {props.Q}
@@ -29,7 +26,6 @@ export default function CardPerguntas(props) {
     );
   }
   if (estadoCarta === 2) {
-    console.log("if2");
     return (
       <RespostaAberta>
         <p data-identifier="flashcard-answer">{props.R}</p>
